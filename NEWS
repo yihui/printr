@@ -1,0 +1,6 @@
+		 CHANGES IN printr VERSION 0.1
+
+NEW FEATURES
+
+  o methods for printing matrices, data frames, tables, help info, data/vignette
+  lists, and package info
