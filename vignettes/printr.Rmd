@@ -37,6 +37,11 @@ This package aims to be portable in the sense that it should work in most
 document formats, including `*.Rnw` (R + LaTeX), `*.Rmd` (R Markdown), and
 `*.Rhtml` (R + HTML) files, etc.
 
+You can find the package source on [Github](https://github.com/yihui/printr),
+and you are welcome to contribute code via pull requests, or file feature
+requests and bug reports via [Github
+issues](https://github.com/yihui/printr/issues).
+
 # Examples
 
 First we take a look at a quick example of printing some R objects in the R
