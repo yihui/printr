@@ -30,7 +30,7 @@ For more information, please check out the [package
 vignette](http://yihui.name/printr):
 
 ```r
-vignette('printr-intro', package = 'printr')
+vignette('printr', package = 'printr')
 ```
 
 You are welcome to contribute more S3 methods to this package, and you may want
