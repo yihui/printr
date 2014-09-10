@@ -9,7 +9,11 @@ It has not been released to CRAN yet, and you can install the development
 version from RForge for now:
 
 ```r
-install.packages('printr', repos = 'http://rforge.net')
+install.packages(
+  'printr',
+  type = 'source',
+  repos = c('http://yihui.name/xran', 'http://cran.rstudio.com')
+)
 ```
 
 To enable the printing methods defined in this package, just `library(printr)`
