@@ -6,7 +6,7 @@ is the default value of the chunk option `render`, as explained in the vignette
 [knit_print.html](http://cran.rstudio.com/web/packages/knitr/vignettes/knit_print.html).
 
 It has not been released to CRAN yet, and you can install the development
-version from RForge for now:
+version from my personal repo for now:
 
 ```r
 install.packages(
