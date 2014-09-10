@@ -10,7 +10,7 @@ Description: This package extends the S3 generic function knit_print() in knitr
     Markdown or LaTeX. For example, data frames are automatically printed as
     tables, and the help() pages can also be rendered in knitr documents.
 Imports:
-    knitr
+    knitr (>= 1.6.18)
 Suggests:
     tools
 License: GPL
