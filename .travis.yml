@@ -20,9 +20,15 @@ script:
   - cd ..; rm -f *.tar.gz; R CMD build $R_PKG
   - R CMD check ${R_PKG}_*.tar.gz --no-manual
 
-# deploy to XRAN
+# deploy to XRAN and update homepage
 after_success:
   - "(wget -q -O - http://yihui.name/xran/r-xran | bash)"
+  - cd ..
+  - R CMD INSTALL *_*.tar.gz
+  - rm -rf gh-pages
+  - git clone --quiet https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git gh-pages > /dev/null
+  - cd gh-pages && cp ~/R/$R_PKG/doc/printr.html index.html
+  - git add index.html && git commit -m"update homepage" && git push origin gh-pages
 
 after_failure:
   - cd ..; for i in `ls *.Rcheck/00*`; do cat $i; done
