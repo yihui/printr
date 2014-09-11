@@ -1,5 +1,7 @@
 # printr
 
+[![Build Status](https://travis-ci.org/yihui/printr.svg)](https://travis-ci.org/yihui/printr)
+
 This is a companion package to [**knitr**](http://yihui.name/knitr). Its main
 purpose is to extend the S3 generic function `knit_print()` in **knitr**, which
 is the default value of the chunk option `render`, as explained in the vignette
