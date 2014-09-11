@@ -11,7 +11,7 @@ install:
   - sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
   - sudo apt-add-repository -y ppa:marutter/c2d4u
   - sudo apt-get update -qq
-  - sudo apt-get install -qq r-base-dev r-cran-knitr
+  - sudo apt-get install -qq r-base-dev r-cran-knitr r-cran-yaml r-cran-catools pandoc pandoc-citeproc
   - "wget -q -O - http://yihui.name/xran/r-config | bash"
   - Rscript -e "install.packages('$R_PKG', dep = TRUE)"
 
@@ -19,14 +19,16 @@ install:
 script:
   - cd ..; rm -f *.tar.gz; R CMD build $R_PKG
   - R CMD check ${R_PKG}_*.tar.gz --no-manual
+  - cd $R_PKG
 
 # deploy to XRAN and update homepage
 after_success:
+  - set -e
   - "(wget -q -O - http://yihui.name/xran/r-xran | bash)"
   - cd ..
   - R CMD INSTALL *_*.tar.gz
   - rm -rf gh-pages
-  - git clone --quiet https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git gh-pages > /dev/null
+  - git clone -q -b gh-pages https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git gh-pages > /dev/null
   - cd gh-pages && cp ~/R/$R_PKG/doc/printr.html index.html
   - git add index.html && git commit -m"update homepage" && git push origin gh-pages
 

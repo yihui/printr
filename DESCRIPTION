@@ -12,7 +12,8 @@ Description: This package extends the S3 generic function knit_print() in knitr
 Imports:
     knitr (>= 1.6.18)
 Suggests:
-    tools
+    tools,
+    rmarkdown
 License: GPL
 URL: http://yihui.name/printr
 BugReports: https://github.com/yihui/printr/issues
