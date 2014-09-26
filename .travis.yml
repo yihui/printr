@@ -13,6 +13,7 @@ install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq r-base-dev r-cran-knitr r-cran-yaml r-cran-catools pandoc pandoc-citeproc
   - "wget -q -O - http://yihui.name/xran/r-config | bash"
+  - Rscript -e "install.packages('rmarkdown')"
   - Rscript -e "install.packages('$R_PKG', dep = TRUE)"
 
 # run tests
