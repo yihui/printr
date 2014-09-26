@@ -30,7 +30,10 @@ knit_print.table = function(x, options) {
     rownames(x) = NULL
   }
   if (d == 2) {
-    knit_print(x, options, rownames.name = paste(names(dimnames(x)), collapse = '/'))
+    knit_print(
+      x, options, row.names = TRUE,
+      rownames.name = paste(names(dimnames(x)), collapse = '/')
+    )
   } else {
     knit_print(x, options)
   }
