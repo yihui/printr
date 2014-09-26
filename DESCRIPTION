@@ -1,7 +1,7 @@
 Package: printr
 Type: Package
 Title: Print R objects according to the knitr output format
-Version: 0.0.1
+Version: 0.0.2
 Date: 2014-09-04
 Author: Yihui Xie
 Maintainer: Yihui Xie <xie@yihui.name>
