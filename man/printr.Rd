@@ -1,3 +1,4 @@
+% Please edit documentation in R/package.R
 \name{printr}
 \alias{printr}
 \alias{printr-package}
