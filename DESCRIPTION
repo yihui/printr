@@ -1,7 +1,7 @@
 Package: printr
 Type: Package
 Title: Automatically Print R Objects According to knitr Output Format
-Version: 0.0.2
+Version: 0.0.3
 Date: 2014-09-04
 Author: Yihui Xie
 Maintainer: Yihui Xie <xie@yihui.name>
