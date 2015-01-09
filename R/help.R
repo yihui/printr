@@ -76,6 +76,8 @@ knit_print.hsearch = function(x, options) {
   if (nrow(out) == 0) return('No results found')
   rownames(out) = NULL
   colnames(out) = sub('^(.)', '\\U\\1', colnames(out), perl = TRUE)  # sigh...
+  # if all types are the same, just remove this column
+  if (length(unique(out[, 'Type'])) <= 1) out = out[, -3, drop = FALSE]
   knit_print(out, options)
 }
 
