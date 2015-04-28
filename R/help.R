@@ -72,7 +72,10 @@ extract_Rd = function(Rd, section) {
 #" help.search()
 #' @export
 knit_print.hsearch = function(x, options) {
-  out = x$matches[, c('Package', 'topic', 'Type', 'title'), drop = FALSE]
+  # case-insensitive matching of column names (e.g. R 3.2.0 uses 'Topic' but R
+  # 3.1.x uses 'topic')
+  j = match(tolower(c('Package', 'topic', 'Type', 'title')), tolower(names(x$matches)))
+  out = x$matches[, j, drop = FALSE]
   if (nrow(out) == 0) return('No results found')
   rownames(out) = NULL
   colnames(out) = sub('^(.)', '\\U\\1', colnames(out), perl = TRUE)  # sigh...
