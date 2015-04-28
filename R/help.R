@@ -77,10 +77,12 @@ knit_print.hsearch = function(x, options) {
   j = match(tolower(c('Package', 'topic', 'Type', 'title')), tolower(names(x$matches)))
   out = x$matches[, j, drop = FALSE]
   if (nrow(out) == 0) return('No results found')
-  rownames(out) = NULL
   colnames(out) = sub('^(.)', '\\U\\1', colnames(out), perl = TRUE)  # sigh...
   # if all types are the same, just remove this column
   if (length(unique(out[, 'Type'])) <= 1) out = out[, -3, drop = FALSE]
+  # remove duplicate rows
+  out = out[!duplicated(out), , drop = FALSE]
+  rownames(out) = NULL
   knit_print(out, options)
 }
 
