@@ -1,19 +1,28 @@
 language: c
 
+sudo: false
+
 env:
   matrix:
     - R_PKG="$(basename $TRAVIS_REPO_SLUG)"
   global:
     secure: hd5Zy/WZT5yazj8Xkad0fqhv5SeQUsZiPzAatXzU7riJnQ9cnHRMr111Qbhh9bHjCQwaPI4FBsxtIEQetYszUULpHhovXomDNcLbD+GAa1lng7XiSHt9SZkhRIXX746MFWle79ya/3/ne1g/ct6m9Z0DExRQAp7F2EsLjWY5Pt8=
+addons:
+  apt:
+    sources:
+    - r-packages-precise
+    packages:
+    - r-base-dev
+    - r-recommended
 
 install:
-  - sudo apt-add-repository -y "deb http://cran.rstudio.com/bin/linux/ubuntu `lsb_release -cs`/"
-  - sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
-  - sudo apt-add-repository -y ppa:marutter/c2d4u
-  - sudo apt-get update
-  - sudo apt-get install r-base-dev r-cran-devtools r-cran-rcpp pandoc pandoc-citeproc
   - "wget -q -O - http://yihui.name/xran/r-config | bash"
+  - Rscript -e "if (!require('devtools')) install.packages('devtools')"
   - Rscript -e "devtools::install_deps(dep = TRUE)"
+
+cache:
+  directories:
+  - $HOME/R
 
 script:
   - cd ..; rm -f *.tar.gz; R CMD build $R_PKG
