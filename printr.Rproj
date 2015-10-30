@@ -16,6 +16,6 @@ AutoAppendNewline: Yes
 StripTrailingWhitespace: Yes
 
 BuildType: Package
-PackageInstallArgs: -v && Rscript -e "Rd2roxygen::rab('printr', install=TRUE)" #
+PackageInstallArgs: -v && Rscript -e "Rd2roxygen::rab(install=TRUE)"
 PackageCheckArgs: --as-cran --no-manual
 PackageRoxygenize: rd,collate,namespace
