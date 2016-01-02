@@ -19,7 +19,7 @@ chunk option `render`, as explained in the vignette
 
 # Overview
 
-To enable the printing methods defined in this package, just `library(printr)`
+To enable the printing methods defined in this package, just `library(printr)` or `loadNamespace('printr')`
 in a code chunk (in the beginning) of your **knitr** document. Then some objects
 will be printed differently with what you would have seen in a normal R console.
 For example:
@@ -32,6 +32,11 @@ For example:
 - the results from `browseVignettes()`, `help.search()`, `data()`, and
   `vignette()` are rendered as tables
 - the package information from `library(help = 'foo')` is rendered as plain text
+
+To disable the printing methods in this package, you can call
+`detach('package:printr', unload = TRUE)` if you _attached_ the package via
+`library(printr)` before, or `unloadNamespace('printr')` if you _loaded_ it via
+`loadNamespace('printr')`.
 
 This package aims to be portable in the sense that it should work in most
 document formats, including `*.Rnw` (R + LaTeX), `*.Rmd` (R Markdown), and
