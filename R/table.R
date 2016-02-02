@@ -46,3 +46,11 @@ knit_print.summary.lm = function(x, options, ...) {
   ), collapse = '\n')
   asis_output(res)
 }
+
+#' @export
+knit_print.lm = function(x, options, ...) {
+  res = paste(c(
+    '', '', kable(summary(x)$coef, options$render.args$kable$format, ...)
+  ), collapse = '\n')
+  asis_output(res)
+}
