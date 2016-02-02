@@ -38,3 +38,11 @@ knit_print.table = function(x, options) {
     knit_print(x, options)
   }
 }
+
+#' @export
+knit_print.summary.lm = function(x, options, ...) {
+  res = paste(c(
+    '', '', kable(x$coef, options$render.args$kable$format, ...)
+  ), collapse = '\n')
+  asis_output(res)
+}
