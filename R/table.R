@@ -40,9 +40,9 @@ knit_print.table = function(x, options) {
 }
 
 #' @export
-knit_print.summary.lm = function(x, options, ...) {
+knit_print.summary.lm = function(x, options) {
   res = paste(c(
-    '', '', kable(x$coef, options$render.args$kable$format, ...)
+    '', '', x$call
   ), collapse = '\n')
   asis_output(res)
 }
