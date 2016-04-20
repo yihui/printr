@@ -50,7 +50,23 @@ knit_print.summary.lm = function(x, options) {
 #' @export
 knit_print.lm = function(x, options, ...) {
   res = paste(c(
-    '', '', kable(summary(x)$coef, options$render.args$kable$format, ...)
+    '', '', kable(summary(x)$coefficients, options$render.args$kable$format, ...)
+  ), collapse = '\n')
+  asis_output(res)
+}
+
+#' @export
+knit_print.summary.plm = function(x, options) {
+  res = paste(c(
+    '', '', x$call
+  ), collapse = '\n')
+  asis_output(res)
+}
+
+#' @export
+knit_print.plm = function(x, options, ...) {
+  res = paste(c(
+    '', '', kable(summary(x)$coefficients, options$render.args$kable$format, ...)
   ), collapse = '\n')
   asis_output(res)
 }
