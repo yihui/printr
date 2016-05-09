@@ -18,7 +18,10 @@ knit_print.table = function(x, options) {
     class(x) = 'matrix'
   } else {
     # TODO: there might be better ways to represent such high-dimensional tables
-    x = as.data.frame(x, stringsAsFactors = FALSE)
+    x = do.call(
+      as.data.frame,
+      c(list(x = x, stringsAsFactors = FALSE), options$printr.table2df.args)
+    )
     m = ncol(x); n = nrow(x)
     # order from first to last column instead of the opposite (default)
     x = x[do.call(order, as.list(x[, -m])), ]
