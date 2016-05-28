@@ -12,7 +12,7 @@ knit_print.data.frame = knit_print.matrix
 knit_print.table = function(x, options) {
   if (any(dim(x) == 0)) return('Empty table')
   d = length(dim(x))
-  if (d == 1) {
+  if (d <= 1) {
     x = matrix(c(x), nrow = 1, dimnames = list(NULL, names(x)))
   } else if (d == 2) {
     class(x) = 'matrix'
