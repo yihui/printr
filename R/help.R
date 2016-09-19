@@ -49,7 +49,9 @@ knit_print.help_files_with_topic = function(x, options) {
 
   # call tools::Rd2[txt,HTML,latex]
   convert = getFromNamespace(paste('Rd', type, sep = '2'), 'tools')
-  out = paste(capture.output(convert(Rd)), collapse = '\n')
+  out = capture.output(convert(Rd))
+  if (type == 'HTML') out = unindent(out)
+  out = paste(out, collapse = '\n')
   # only need the body fragment (Rd2HTML(fragment = TRUE) does not really work)
   if (type == 'HTML') {
     out = gsub('.*?<body>(.*)</body>.*', '<div class="r-help-page">\\1</div>', out)
@@ -67,6 +69,22 @@ extract_Rd = function(Rd, section) {
   section  = c('title', 'name', section)  # title and name are required
   Rd[which(!(sections %in% section))] = NULL
   Rd
+}
+
+# remove the leading four spaces, otherwise Pandoc treats the line as <pre>
+unindent = function(x) {
+  x = gsub('\t', '    ', x)
+  if (length(i0 <- grep('^    ', x)) == 0) return(x)
+
+  i1 = grep('<pre>|<pre .*>', x); i2 = grep('</pre>', x)
+  for (i in i0) {
+    # do not unindent lines between <pre> and </pre>
+    if (length(i1) * length(i2) == 0 || max(i1[i1 < i]) > min(i2[i2 > i])) {
+      while (grepl('^    ', x[i])) x[i] = gsub('^    ', '  ', x[i])
+    }
+  }
+
+  x
 }
 
 #" help.search()
