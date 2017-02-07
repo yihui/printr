@@ -1,21 +1,24 @@
 ---
-title: "An Introduction to The printr Package"
+title: "An Introduction to the printr Package"
 author: "Yihui Xie"
 date: "`r Sys.Date()`"
+slug: printr
+show_toc: yes
+githubEditURL: https://github.com/yihui/printr/edit/master/vignettes/printr.Rmd
 output:
   knitr:::html_vignette:
     number_sections: yes
     toc: yes
 vignette: >
-  %\VignetteIndexEntry{An Introduction to The printr Package}
+  %\VignetteIndexEntry{An Introduction to the printr Package}
   %\VignetteEngine{knitr::rmarkdown}
 ---
 
 The **printr** (read "printer" or "print R") package is a companion package to
-[**knitr**](http://yihui.name/knitr). Its main purpose is to extend the S3
+[**knitr**](https://yihui.name/knitr). Its main purpose is to extend the S3
 generic function `knit_print()` in **knitr**, which is the default value of the
 chunk option `render`, as explained in the vignette
-[knit_print.html](http://cran.rstudio.com/web/packages/knitr/vignettes/knit_print.html).
+[knit_print.html](https://cran.rstudio.com/web/packages/knitr/vignettes/knit_print.html).
 
 # Overview
 
@@ -70,7 +73,7 @@ library(printr)
 Matrices and data frames are printed as tables using the `kable()` function in
 **knitr**:
 
-```{r}
+```{r warning=FALSE}
 options(digits = 4)
 set.seed(123)
 x = matrix(rnorm(40), 5)
@@ -143,12 +146,12 @@ We can print the lists of vignettes and datasets in packages using `vignette()`
 and `data()`, respectively.
 
 ```{r error=TRUE, purl=FALSE}
-vignette(package='rpart')
-vignette(package=c('rpart', 'knitr'))
-data(package='lattice')
-data(package=c('rpart', 'lattice'))
-data(package='knitr')  # no datasets here
-browseVignettes(package='knitr')
+vignette(package = 'rpart')
+vignette(package = c('rpart', 'knitr'))
+data(package = 'lattice')
+data(package = c('rpart', 'lattice'))
+data(package = 'knitr')  # no datasets here
+browseVignettes(package = 'knitr')
 ```
 
 ## Package info
@@ -156,5 +159,5 @@ browseVignettes(package='knitr')
 A description of a package can be printed via `library(help = 'foo')`:
 
 ```{r comment='', R.options=list(width=100)}
-library(help='printr')
+library(help = 'printr')
 ```
