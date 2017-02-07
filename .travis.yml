@@ -8,11 +8,10 @@ env:
     - secure: hd5Zy/WZT5yazj8Xkad0fqhv5SeQUsZiPzAatXzU7riJnQ9cnHRMr111Qbhh9bHjCQwaPI4FBsxtIEQetYszUULpHhovXomDNcLbD+GAa1lng7XiSHt9SZkhRIXX746MFWle79ya/3/ne1g/ct6m9Z0DExRQAp7F2EsLjWY5Pt8=
 
 repos:
-  XRAN: http://yihui.name/xran
+  XRAN: https://xran.yihui.name
 
 before_install:
-  - "wget -q http://yihui.name/xran/.gitconfig -O ~/.gitconfig"
+  - "curl -L https://xran.yihui.name/.gitconfig -o ~/.gitconfig"
 
 after_success:
-  - export R_VIGNETTE=printr.html
-  - "(wget -q -O - http://yihui.name/xran/r-xran | bash)"
+  - "(curl -L https://xran.yihui.name/r-xran | bash)"
