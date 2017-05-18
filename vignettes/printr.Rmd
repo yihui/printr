@@ -14,7 +14,7 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
 ---
 
-```{r setup}
+```{r setup, include=FALSE}
 options(width = 80)
 ```
 
