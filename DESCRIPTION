@@ -1,21 +1,22 @@
 Package: printr
 Type: Package
-Title: Automatically Print R Objects According to knitr Output Format
 Version: 0.0.7
 Date: 2014-09-04
+Title: Automatically Print R Objects to Appropriate Formats According to the
+    'knitr' Output Format
 Author: Yihui Xie
 Maintainer: Yihui Xie <xie@yihui.name>
-Description: Extends the S3 generic function knit_print() in knitr
+Description: Extends the S3 generic function knit_print() in 'knitr'
     to automatically print some objects using an appropriate format such as
     Markdown or LaTeX. For example, data frames are automatically printed as
-    tables, and the help() pages can also be rendered in knitr documents.
+    tables, and the help() pages can also be rendered in 'knitr' documents.
 Imports:
-    knitr (>= 1.11)
+    knitr (>= 1.16)
 Suggests:
     tools,
     rmarkdown
 License: GPL
-URL: http://yihui.name/printr
+URL: https://yihui.name/printr/
 BugReports: https://github.com/yihui/printr/issues
 VignetteBuilder: knitr
 LazyData: TRUE
