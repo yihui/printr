@@ -121,5 +121,6 @@ knit_print.packageIQR = function(x, options) {
     title = paste(title, 'in', out[1, 1])
     out = out[, -1, drop = FALSE]
   }
-  knit_print(out, options, caption = title, row.names = FALSE)
+  if (is.null(options$printr.table.caption)) options$printr.table.caption = title
+  knit_print(out, options, row.names = FALSE)
 }
