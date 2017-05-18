@@ -58,6 +58,7 @@ knit_print.help_files_with_topic = function(x, options) {
     out = gsub('<pre>', '<pre class="r">', out)
   }
 
+  out = knitr:::trimws(out)
   # I do not know where _\b came from in the text mode...
   if (type == 'txt') gsub('_\b', '', out) else asis_output(out)
 }
