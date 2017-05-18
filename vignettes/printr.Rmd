@@ -131,12 +131,11 @@ require human interaction. Again, we may not desire human interactions in
 ```
 
 When help pages are really long, we can use the chunk option
-`render.args$help$sections`^[The `$` notation here means the chunk option should
-be of the form `render.args = list(help = list(sections = VALUES))`.] to select
+`printr.help.sections` to select
 a few sections to display, e.g. we only show the sections `description` and
 `usage` of the `paste()` function:
 
-```{r tidy=FALSE, render.args=list(help=list(sections=c('description', 'usage')))}
+```{r tidy=FALSE, printr.help.sections=c('description', 'usage'), comment=''}
 ?paste
 ```
 
