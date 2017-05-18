@@ -2,10 +2,10 @@
 
 [![Build Status](https://travis-ci.org/yihui/printr.svg)](https://travis-ci.org/yihui/printr)
 
-This is a companion package to [**knitr**](http://yihui.name/knitr). Its main
+This is a companion package to [**knitr**](https://yihui.name/knitr). Its main
 purpose is to extend the S3 generic function `knit_print()` in **knitr**, which
 is the default value of the chunk option `render`, as explained in the vignette
-[knit_print.html](http://cran.rstudio.com/web/packages/knitr/vignettes/knit_print.html).
+[knit_print.html](https://cran.rstudio.org/web/packages/knitr/vignettes/knit_print.html).
 
 It has not been released to CRAN yet, and you can install the development
 version from my personal repo for now:
@@ -14,7 +14,7 @@ version from my personal repo for now:
 install.packages(
   'printr',
   type = 'source',
-  repos = c('http://yihui.name/xran', 'http://cran.rstudio.com')
+  repos = c('https://xran.yihui.name', 'https://cran.rstudio.com')
 )
 ```
 
@@ -33,7 +33,7 @@ For example:
 - the package information from `library(help = 'foo')` is rendered as plain text
 
 For more information, please check out the [package
-vignette](http://yihui.name/printr):
+vignette](https://yihui.name/printr):
 
 ```r
 vignette('printr', package = 'printr')
