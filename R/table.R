@@ -1,8 +1,8 @@
 #' @export
 knit_print.matrix = function(x, options, ...) {
-  res = paste(c(
-    '', '', kable(x, options$render.args$kable$format, ...)
-  ), collapse = '\n')
+  res = paste(c('', '', kable(
+    x, options$printr.table.format, caption = options$printr.table.caption, ...
+  )), collapse = '\n')
   asis_output(res)
 }
 #' @export
