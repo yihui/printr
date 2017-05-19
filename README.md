@@ -7,10 +7,13 @@ purpose is to extend the S3 generic function `knit_print()` in **knitr**, which
 is the default value of the chunk option `render`, as explained in the vignette
 [knit_print.html](https://cran.rstudio.org/web/packages/knitr/vignettes/knit_print.html).
 
-It has not been released to CRAN yet, and you can install the development
-version from my personal repo for now:
+You can install the stable version from CRAN or the development version from my personal repo:
 
 ```r
+# CRAN version
+install.packages('printr')
+
+# or the dev version
 install.packages(
   'printr',
   type = 'source',
