@@ -1,21 +1,28 @@
 ---
-title: "An Introduction to The printr Package"
+title: "An Introduction to the printr Package"
 author: "Yihui Xie"
 date: "`r Sys.Date()`"
+slug: printr
+show_toc: yes
+githubEditURL: https://github.com/yihui/printr/edit/master/vignettes/printr.Rmd
 output:
   knitr:::html_vignette:
     number_sections: yes
     toc: yes
 vignette: >
-  %\VignetteIndexEntry{An Introduction to The printr Package}
+  %\VignetteIndexEntry{An Introduction to the printr Package}
   %\VignetteEngine{knitr::rmarkdown}
 ---
 
+```{r setup, include=FALSE}
+options(width = 80)
+```
+
 The **printr** (read "printer" or "print R") package is a companion package to
-[**knitr**](http://yihui.name/knitr). Its main purpose is to extend the S3
+[**knitr**](https://yihui.name/knitr/). Its main purpose is to extend the S3
 generic function `knit_print()` in **knitr**, which is the default value of the
 chunk option `render`, as explained in the vignette
-[knit_print.html](http://cran.rstudio.com/web/packages/knitr/vignettes/knit_print.html).
+[knit_print.html](https://cran.rstudio.org/web/packages/knitr/vignettes/knit_print.html).
 
 # Overview
 
@@ -42,7 +49,7 @@ This package aims to be portable in the sense that it should work in most
 document formats, including `*.Rnw` (R + LaTeX), `*.Rmd` (R Markdown), and
 `*.Rhtml` (R + HTML) files, etc.
 
-You can find the package source on [Github](https://github.com/yihui/printr),
+You can find the package source as well as installation instructions on [Github](https://github.com/yihui/printr),
 and you are welcome to contribute code via pull requests, or file feature
 requests and bug reports via [Github
 issues](https://github.com/yihui/printr/issues).
@@ -61,7 +68,7 @@ head(iris)
 Then we attach the **printr** package in this R session, and see how things
 change later:
 
-```{r setup}
+```{r}
 library(printr)
 ```
 
@@ -70,7 +77,7 @@ library(printr)
 Matrices and data frames are printed as tables using the `kable()` function in
 **knitr**:
 
-```{r}
+```{r warning=FALSE}
 options(digits = 4)
 set.seed(123)
 x = matrix(rnorm(40), 5)
@@ -123,17 +130,16 @@ or `help()`, which will launch a separate help page from the R session, and
 require human interaction. Again, we may not desire human interactions in
 **knitr** documents, so the help pages are printed as static documents here.
 
-```{r tidy=FALSE}
+```{r tidy=FALSE, comment=''}
 ?coef
 ```
 
 When help pages are really long, we can use the chunk option
-`render.args$help$sections`^[The `$` notation here means the chunk option should
-be of the form `render.args = list(help = list(sections = VALUES))`.] to select
+`printr.help.sections` to select
 a few sections to display, e.g. we only show the sections `description` and
 `usage` of the `paste()` function:
 
-```{r tidy=FALSE, render.args=list(help=list(sections=c('description', 'usage')))}
+```{r tidy=FALSE, printr.help.sections=c('description', 'usage'), comment=''}
 ?paste
 ```
 
@@ -143,12 +149,12 @@ We can print the lists of vignettes and datasets in packages using `vignette()`
 and `data()`, respectively.
 
 ```{r error=TRUE, purl=FALSE}
-vignette(package='rpart')
-vignette(package=c('rpart', 'knitr'))
-data(package='lattice')
-data(package=c('rpart', 'lattice'))
-data(package='knitr')  # no datasets here
-browseVignettes(package='knitr')
+vignette(package = 'rpart')
+vignette(package = c('rpart', 'knitr'))
+data(package = 'lattice')
+data(package = c('rpart', 'lattice'))
+data(package = 'knitr')  # no datasets here
+browseVignettes(package = 'knitr')
 ```
 
 ## Package info
@@ -156,5 +162,5 @@ browseVignettes(package='knitr')
 A description of a package can be printed via `library(help = 'foo')`:
 
 ```{r comment='', R.options=list(width=100)}
-library(help='printr')
+library(help = 'printr')
 ```

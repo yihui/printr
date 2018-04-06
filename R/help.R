@@ -31,7 +31,7 @@ knit_print.help_files_with_topic = function(x, options) {
 
   db = tools::Rd_db(pkg)
   Rd = db[[which(base == sub('[.]Rd$', '', basename(names(db))))]]
-  Rd = extract_Rd(Rd, options$render.args$help$sections)
+  Rd = extract_Rd(Rd, options$printr.help.sections)
 
   type = knitr:::pandoc_to()
   if (is.null(type)) {
@@ -58,6 +58,7 @@ knit_print.help_files_with_topic = function(x, options) {
     out = gsub('<pre>', '<pre class="r">', out)
   }
 
+  out = knitr:::trimws(out)
   # I do not know where _\b came from in the text mode...
   if (type == 'txt') gsub('_\b', '', out) else asis_output(out)
 }
@@ -120,5 +121,6 @@ knit_print.packageIQR = function(x, options) {
     title = paste(title, 'in', out[1, 1])
     out = out[, -1, drop = FALSE]
   }
-  knit_print(out, options, caption = title, row.names = FALSE)
+  if (is.null(options$printr.table.caption)) options$printr.table.caption = title
+  knit_print(out, options, row.names = FALSE)
 }

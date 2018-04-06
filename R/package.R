@@ -5,6 +5,7 @@
 #' 'printr')}.
 #' @name printr
 #' @aliases printr-package
+#' @import utils
 #' @importFrom knitr asis_output kable knit_print
 NULL
 
