@@ -5,7 +5,7 @@
 This is a companion package to [**knitr**](https://yihui.name/knitr). Its main
 purpose is to extend the S3 generic function `knit_print()` in **knitr**, which
 is the default value of the chunk option `render`, as explained in the vignette
-[knit_print.html](https://cran.r-project.org/web/packages/knitr/vignettes/knit_print.html).
+`vignette('knit_print', package = 'knitr')`.
 
 You can install the stable version from CRAN or the development version from my personal repo:
 
