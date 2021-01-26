@@ -33,7 +33,8 @@ knit_print.help_files_with_topic = function(x, options) {
   Rd = db[[which(base == sub('[.]Rd$', '', basename(names(db))))]]
   Rd = extract_Rd(Rd, options$printr.help.sections)
 
-  type = knitr:::pandoc_to()
+  # TODO: use knitr::pandoc_to()
+  type = knitr::opts_knit$get('rmarkdown.pandoc.to')
   if (is.null(type)) {
     type = knitr:::out_format()
     if (type == 'html') type = 'HTML' else if (type != 'latex') type = 'txt'

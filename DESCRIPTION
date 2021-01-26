@@ -2,8 +2,7 @@ Package: printr
 Type: Package
 Title: Automatically Print R Objects to Appropriate Formats According to the
     'knitr' Output Format
-Version: 0.1
-Date: 2017-05-19
+Version: 0.1.1
 Author: Yihui Xie
 Maintainer: Yihui Xie <xie@yihui.name>
 Description: Extends the S3 generic function knit_print() in 'knitr'
@@ -20,5 +19,5 @@ URL: https://yihui.org/printr/
 BugReports: https://github.com/yihui/printr/issues
 VignetteBuilder: knitr
 LazyData: TRUE
-RoxygenNote: 7.0.0
+RoxygenNote: 7.1.1
 Encoding: UTF-8
