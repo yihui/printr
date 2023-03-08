@@ -1,6 +1,6 @@
 #" browseVignettes()
 #' @export
-knit_print.browseVignettes = function(x, options) {
+knit_print.browseVignettes = function(x, ...) {
   if (length(x) == 0) return('No vignettes found')
   x = do.call(rbind, x)
   x = x[, c('Package', 'PDF', 'Title'), drop = FALSE]
@@ -10,12 +10,12 @@ knit_print.browseVignettes = function(x, options) {
   } else {
     x[order(x[, 1]), , drop = FALSE]  # order by package names
   }
-  knit_print(x, options)
+  knit_print(x, ...)
 }
 
 #" ?foo / help(foo)
 #' @export
-knit_print.help_files_with_topic = function(x, options) {
+knit_print.help_files_with_topic = function(x, options, ...) {
   n = length(x)
   topic = attr(x, 'topic')
   if (n == 0) return(paste(
@@ -73,7 +73,7 @@ extract_Rd = function(Rd, section) {
 
 #" help.search()
 #' @export
-knit_print.hsearch = function(x, options) {
+knit_print.hsearch = function(x, ...) {
   # case-insensitive matching of column names (e.g. R 3.2.0 uses 'Topic' but R
   # 3.1.x uses 'topic')
   j = match(tolower(c('Package', 'topic', 'Type', 'title')), tolower(names(x$matches)))
@@ -85,18 +85,18 @@ knit_print.hsearch = function(x, options) {
   # remove duplicate rows
   out = out[!duplicated(out), , drop = FALSE]
   rownames(out) = NULL
-  knit_print(out, options)
+  knit_print(out, ...)
 }
 
 #" library(help = foo)
 #' @export
-knit_print.packageInfo = function(x, options) {
+knit_print.packageInfo = function(x, ...) {
   sub('^\n', '', paste(format(x), collapse = '\n'))
 }
 
 #" data()/vignette()
 #' @export
-knit_print.packageIQR = function(x, options) {
+knit_print.packageIQR = function(x, options, ...) {
   if (nrow(x$results) == 0) return(paste(x$title, 'not found'))
   out = x$results[, c('Package', 'Item', 'Title'), drop = FALSE]
   title = x$title

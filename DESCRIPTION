@@ -2,7 +2,7 @@ Package: printr
 Type: Package
 Title: Automatically Print R Objects to Appropriate Formats According to the
     'knitr' Output Format
-Version: 0.2.1
+Version: 0.2.2
 Author: Yihui Xie
 Maintainer: Yihui Xie <xie@yihui.name>
 Description: Extends the S3 generic function knit_print() in 'knitr'

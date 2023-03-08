@@ -9,7 +9,7 @@ knit_print.matrix = function(x, options, ...) {
 knit_print.data.frame = knit_print.matrix
 
 #' @export
-knit_print.table = function(x, options) {
+knit_print.table = function(x, options, ...) {
   if (any(dim(x) == 0)) return('Empty table')
   d = length(dim(x))
   if (d <= 1) {
