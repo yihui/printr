@@ -18,5 +18,5 @@ License: GPL
 URL: https://yihui.org/printr/
 BugReports: https://github.com/yihui/printr/issues
 VignetteBuilder: knitr
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3
 Encoding: UTF-8
