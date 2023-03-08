@@ -1,6 +1,8 @@
 # printr
 
-[![Build Status](https://travis-ci.org/yihui/printr.svg)](https://travis-ci.org/yihui/printr)
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/yihui/printr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/yihui/printr/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
 
 This is a companion package to [**knitr**](https://yihui.org/knitr). Its main
 purpose is to extend the S3 generic function `knit_print()` in **knitr**, which
@@ -16,8 +18,7 @@ install.packages('printr')
 # or the dev version
 install.packages(
   'printr',
-  type = 'source',
-  repos = c('https://xran.yihui.org', 'https://cran.rstudio.com')
+  repos = c('https://yihui.r-universe.dev', 'https://cran.rstudio.com')
 )
 ```
 
@@ -36,7 +37,7 @@ For example:
 - the package information from `library(help = 'foo')` is rendered as plain text
 
 For more information, please check out the [package
-vignette](https://yihui.org/printr):
+vignette](https://yihui.org/printr/):
 
 ```r
 vignette('printr', package = 'printr')
