@@ -3,8 +3,9 @@ Type: Package
 Title: Automatically Print R Objects to Appropriate Formats According to the
     'knitr' Output Format
 Version: 0.2.2
-Author: Yihui Xie
-Maintainer: Yihui Xie <xie@yihui.name>
+Authors@R: c(
+    person("Yihui", "Xie", role = c("aut", "cre"), email = "xie@yihui.name", comment = c(ORCID = "0000-0003-0645-5666"))
+    )
 Description: Extends the S3 generic function knit_print() in 'knitr'
     to automatically print some objects using an appropriate format such as
     Markdown or LaTeX. For example, data frames are automatically printed as
