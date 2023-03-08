@@ -1,5 +1,6 @@
 # CHANGES IN printr VERSION 0.3
 
+- Added `...` arguments to `knit_print` S3 methods to avoid warnings in `R CMD check`.
 
 # CHANGES IN printr VERSION 0.2
 
