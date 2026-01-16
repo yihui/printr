@@ -3,7 +3,6 @@ title: "An Introduction to the printr Package"
 author: "Yihui Xie"
 date: "`r Sys.Date()`"
 slug: printr
-show_toc: yes
 githubEditURL: https://github.com/yihui/printr/edit/master/vignettes/printr.Rmd
 output:
   knitr:::html_vignette:
