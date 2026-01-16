@@ -23,7 +23,7 @@ generic function `knit_print()` in **knitr**, which is the default value of the
 chunk option `render`, as explained in the vignette
 [knit_print.html](https://cran.r-project.org/package=knitr/vignettes/knit_print.html).
 
-# Overview
+## Overview
 
 To enable the printing methods defined in this package, just `library(printr)` or `loadNamespace('printr')`
 in a code chunk (in the beginning) of your **knitr** document. Then some objects
@@ -53,7 +53,7 @@ and you are welcome to contribute code via pull requests, or file feature
 requests and bug reports via [Github
 issues](https://github.com/yihui/printr/issues).
 
-# Examples
+## Examples
 
 First we take a look at a quick example of printing some R objects in the R
 console:
@@ -71,7 +71,7 @@ change later:
 library(printr)
 ```
 
-## Matrices/data frames/tables
+### Matrices/data frames/tables
 
 Matrices and data frames are printed as tables using the `kable()` function in
 **knitr**:
@@ -103,7 +103,7 @@ table(x1, x2)
 table(x1, x2, x3)
 ```
 
-## Search results from `help.search()`
+### Search results from `help.search()`
 
 Here are some examples demonstrating the results of `help.search()`, or you can
 also use `??` to search for a string.
@@ -122,7 +122,7 @@ changed the printing behavior of these results, and readers will get the basic
 idea of these functions when reading the **knitr** output. If they want to run
 these functions by themselves, they can do it in an interactive R session.
 
-## Help pages
+### Help pages
 
 When you want to read the help page of a certain R object, you normally use `?`
 or `help()`, which will launch a separate help page from the R session, and
@@ -142,7 +142,7 @@ a few sections to display, e.g. we only show the sections `description` and
 ?paste
 ```
 
-## Vignette/dataset lists
+### Vignette/dataset lists
 
 We can print the lists of vignettes and datasets in packages using `vignette()`
 and `data()`, respectively.
@@ -156,7 +156,7 @@ data(package = 'knitr')  # no datasets here
 browseVignettes(package = 'knitr')
 ```
 
-## Package info
+### Package info
 
 A description of a package can be printed via `library(help = 'foo')`:
 
